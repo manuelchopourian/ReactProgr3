@@ -1,12 +1,13 @@
 import React from 'react';
+import './footer.css'
 
 function Footer(){
     return (
         <footer>
         <ul className="team">
-            <li>Nombre integrante 1</li>
-            <li>Nombre integrante 2</li>
-            <li>Nombre integrante 3</li>
+            <li>Juan Zimmerman</li>
+            <li>Felix Paolucci</li>
+            <li>Manuel Chopourian</li>
         </ul>
         </footer>
 

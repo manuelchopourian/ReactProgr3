@@ -1,0 +1,17 @@
+footer{
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    background-color: rgba(175, 174, 174, 0.877);
+    margin-top: 4vh;
+    height: 4vh;
+}
+.team{
+    display: flex;
+    flex-direction: row;
+    list-style: none;  
+}
+.team li{
+    margin: 0 1vw;
+    align-self: center;
+}
