@@ -6,12 +6,13 @@ class Peliculas extends Component{
         super()
         this.state = {
             peliculas : [],
+            pagina: 1,
         }
     }
 
     componentDidMount(){
 
-        let url = 'https://api.themoviedb.org/3/movie/top_rated?api_key=947976bd814222f623ebca2e4e5e8a3a&language=es-ES&page=1';
+        let url = `https://api.themoviedb.org/3/movie/popular?api_key=947976bd814222f623ebca2e4e5e8a3a&language=es-ES&page=${this.state.pagina}`;
 
         fetch(url)
             .then ( response => response.json() )
@@ -20,10 +21,26 @@ class Peliculas extends Component{
                 this.setState({
                     peliculas : data.results,
                     isLoaded: true,
+                    pagina: this.state.pagina + 1
                 })
             })
             .catch( error => console.log(error) );
         
+    }
+    addMore(){
+        let url = `https://api.themoviedb.org/3/movie/popular?api_key=947976bd814222f623ebca2e4e5e8a3a&language=es-ES&page=${this.state.pagina}`;
+    
+        fetch(url)
+            .then ( response => response.json() )
+            .then ( data => {
+                console.log(data);
+                this.setState({
+                    peliculas : this.state.peliculas.concat(data.results),
+                    isLoaded: true,
+                    pagina: this.state.pagina + 1
+                })
+            })
+            .catch( error => console.log(error) );
     }
 
 
@@ -31,15 +48,17 @@ class Peliculas extends Component{
     render(){
         return(
             <main>
-            <div className='button'>
-            <button type="button">Cargar más tarjetas</button>
-            </div>
+                <section className="container">
                     {
                             this.state.isLoaded === false ?
                             <p>Cargando... </p> :
                             this.state.peliculas.map((peliculas, idx,) =>  
                             <Cards key={peliculas.title + idx} dataPeliculas={peliculas}/>)
                     }
+                 </section>
+                 <div className='button'>
+                    <button type="button"  onClick={() => this.addMore()}>Cargar más tarjetas</button>
+                </div>
             </main>
         
         )

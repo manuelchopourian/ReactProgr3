@@ -3,7 +3,7 @@ import './topbar.css'
 function Topbar(){
     return (
         <header>
-        <h1>Título/ Nombre de la app</h1>
+        <img src='./assets/img/logo.jpg'></img>
         <section className='searchBar'>
             <form action="">
                 <input type="text" name="search" id="" placeholder="Search"/>
