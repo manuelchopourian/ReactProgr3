@@ -23,21 +23,32 @@ class Peliculas extends Component{
                 })
             })
             .catch( error => console.log(error) );
+        
     }
+
+
 
     render(){
         return(
-            <div>
-                {
-                this.state.isLoaded === false ?
-                <p>Cargando... </p> :
-                this.state.peliculas.map((peliculas, idx) =>  
-                <Cards key={peliculas.title + idx} dataPeliculas={peliculas}/>)
-                }
+            <main>
+            <div className='button'>
+            <button type="button">Cargar más tarjetas</button>
             </div>
+                    {
+                            this.state.isLoaded === false ?
+                            <p>Cargando... </p> :
+                            this.state.peliculas.map((peliculas, idx,) =>  
+                            <Cards key={peliculas.title + idx} dataPeliculas={peliculas}/>)
+                    }
+            </main>
+        
         )
     }
 
 }
 
 export default Peliculas
+
+
+
+
