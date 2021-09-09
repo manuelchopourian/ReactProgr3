@@ -7,6 +7,7 @@ class Peliculas extends Component{
         this.state = {
             peliculas : [],
             pagina: 1,
+            isLoaded: false
         }
     }
 
@@ -42,18 +43,26 @@ class Peliculas extends Component{
             })
             .catch( error => console.log(error) );
     }
+    deleteCard(peliculaABorrar){
+        let peliculasQueQuedan = this.state.peliculas.filter(pelicula => pelicula.id !== peliculaABorrar)
+        this.setState({
+            peliculas:peliculasQueQuedan
+        })
+        
+    }
 
 
 
     render(){
         return(
             <main>
-                <section className="container">
+                <section className={`${this.state.isLoaded ? 'container' : 'carga'}`}>
                     {
                             this.state.isLoaded === false ?
-                            <p>Cargando... </p> :
+                            <div className='spinner'>
+                            </div> :
                             this.state.peliculas.map((peliculas, idx,) =>  
-                            <Cards key={peliculas.title + idx} dataPeliculas={peliculas}/>)
+                            <Cards key={peliculas.title + idx} dataPeliculas={peliculas} remove={(peliculaABorrar) => this.deleteCard(peliculaABorrar)}/>)
                     }
                  </section>
                  <div className='button'>

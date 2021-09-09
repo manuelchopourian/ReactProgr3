@@ -1,7 +1,6 @@
 body{
     box-sizing: border-box;
     background-color: rgb(42, 42, 43);
-    width: 100%;
 }
 .container{
     display: flex;
@@ -10,4 +9,23 @@ body{
     justify-content: space-between;
     margin: auto;
 
+}
+.carga{
+    display: flex;
+    justify-content: center;
+    margin: 4vh 0;
+}
+.spinner{
+    width: 100px;
+    height: 100px;
+    border: solid white 15px;
+    border-top-color: teal;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    text-align: center;
+}
+@keyframes spin {
+    to{
+        transform: rotate(360deg);
+    }
 }

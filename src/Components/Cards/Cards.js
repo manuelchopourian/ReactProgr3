@@ -28,16 +28,14 @@ class Cards extends Component{
         return (
             <article className="card-container">
                 <section className="navigation">
-            
-                    
                     <div className='close'>
-                    <i class="fas fa-times"></i>
+                    <i class="fas fa-times" onClick={()=> this.props.remove(this.props.dataPeliculas.id)}></i>
                     </div>
                 </section>
             
             <main className='cover'>
             <h3>{this.props.dataPeliculas.title}</h3>
-            <img src={`https://image.tmdb.org/t/p/w342${this.props.dataPeliculas.backdrop_path}`} alt="" />
+            <img src={`https://image.tmdb.org/t/p/w500${this.props.dataPeliculas.poster_path}`} alt="" />
             <div className='infoCard'>
             <p className="description">{this.props.dataPeliculas.overview}</p>
             <section className={`aditional-info ${this.state.viewMore ? 'show' : 'hide'}`}>
