@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import Cards from '../Cards/Cards';
+import Filtro  from '../Filtro/Filtro';
 
 class Peliculas extends Component{
     constructor(){
@@ -7,7 +8,8 @@ class Peliculas extends Component{
         this.state = {
             peliculas : [],
             pagina: 1,
-            isLoaded: false
+            isLoaded: false,
+            peliculasOriginales: []
         }
     }
 
@@ -22,7 +24,8 @@ class Peliculas extends Component{
                 this.setState({
                     peliculas : data.results,
                     isLoaded: true,
-                    pagina: this.state.pagina + 1
+                    pagina: this.state.pagina + 1,
+                    peliculasOriginales: data.results
                 })
             })
             .catch( error => console.log(error) );
@@ -51,11 +54,23 @@ class Peliculas extends Component{
         
     }
 
+    filtrarPeliculas(buscador){
+        let peliculasFiltradas = this.state.peliculasOriginales.filter(pelicula=> pelicula.title.toLowerCase().includes(buscador.toLowerCase()));
+
+        this.setState({
+            peliculas: peliculasFiltradas
+        })
+
+    }
+
+
 
 
     render(){
         return(
             <main>
+
+                <Filtro filtrarPeliculas={(buscador)=> this.filtrarPeliculas(buscador)}/>
                 <section className={`${this.state.isLoaded ? 'container' : 'carga'}`}>
                     {
                             this.state.isLoaded === false ?
