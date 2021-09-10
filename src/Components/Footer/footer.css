@@ -2,14 +2,15 @@ footer{
     display: flex;
     justify-content: flex-end;
     flex-direction: row;
-    background-color: rgba(175, 174, 174, 0.877);
+    background-color: black;
     margin-top: 4vh;
-    height: 4vh;
 }
 .team{
     display: flex;
     flex-direction: row;
-    list-style: none;  
+    list-style: none;
+    height: 50px;
+    color: rgb(0, 132, 255);  
 }
 .team li{
     margin: 0 1vw;

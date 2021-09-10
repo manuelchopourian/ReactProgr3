@@ -2,15 +2,14 @@
     display: flex;
     justify-content: center;
     padding: 15px;
-    
 }
 .imput-buscador{
-width: 20%;
-height: 5%;
-padding-top: 5px;
-border-radius: 8px;
+    width: 25%;
+    height: 10%;
+    border-radius: 8px;
+    padding: 5px;
 }
 
 .button-buscador{
-    border-radius: 8px;
+    border-radius: 5px;
 }
