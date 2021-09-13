@@ -8,7 +8,7 @@ body{
     flex-wrap: wrap;
     justify-content: space-between;
     margin: auto;
-
+    padding: 1%;
 }
 .carga{
     display: flex;

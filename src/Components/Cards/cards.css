@@ -12,15 +12,14 @@
     border: none;
     cursor: pointer;
 }
-.card-container{
+.cards-vertical{
     width: 23.5vw;
     border: 1px solid black;
     margin: 2vh 0;
     background-color: white;
     border-radius: 10px;
-    border-bottom-left-radius: 10px;
 }
-.card-container:hover{
+.cards-vertical:hover{
     box-shadow: 0.5em 0 0.5em rgba(255, 255, 255, 0.5), -0.5em 0 0.5em rgba(255, 255, 255, 0.5);
 }
 .navigation{
@@ -33,17 +32,18 @@
     padding: 0.5vh 0.5vw;
     color: rgb(0, 132, 255);
     font-size: 2.3vh;
+    height: 6vh;
 }
 .close:hover{
     text-decoration: underline;
     cursor: pointer;
 }
-.cover{
+.cover-vertical{
     display: flex;
     flex-direction: column;
     background-color: white;
 }
-.cover h3{
+.cover-vertical h3{
     font-family: 'Roboto', sans-serif;
     font-size: 1.3em;
     margin-left: 0.3vw;
@@ -52,19 +52,57 @@
     justify-content: center;
     text-align: center;
 }
-.cover img{
+.cover-vertical img{
     width: 80%;
+    margin-bottom: 1.5vh;
+    border: 1px solid black;
+}
+.cards-horizontal{
+    width: 80vw;
+    height: 30vh;
+    border: 1px solid black;
+    margin: 2vh 0;
+    background-color: white;
+    border-radius: 10px;
+}
+.cards-horizontal:hover{
+    box-shadow: 0.5em 0 0.5em rgba(255, 255, 255, 0.5), -0.5em 0 0.5em rgba(255, 255, 255, 0.5);
+}
+.cover-horizontal{
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+}
+.cover-horizontal h3{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.3em;
+    margin-left: 0.3vw;
+    margin-right: 0.3vw;
+    display: flex;
+    justify-content: flex-start;
+    text-align: center;
+}
+.cover-horizontal img{
+    width: 30%;
     align-self: center;
     margin-bottom: 1.5vh;
     border: 1px solid black;
 }
-.infoCard{
+.infoCard-vertical{
     margin: 0 1vw;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     font-family: 'Roboto', sans-serif;
 }
+.infoCard-horizontal{
+    margin: 0 1vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+}
+
 .more{
     align-self: flex-end;
     margin: 2vh 2vw 2vh 0;
@@ -76,7 +114,8 @@
     cursor: pointer;
 }
 .description{
-    margin: 0 0.5vw;
+    margin: 1.5vh 0.5vw;
+
 }
 .show{
     display:block;

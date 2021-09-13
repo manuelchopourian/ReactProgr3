@@ -10,7 +10,8 @@ class Peliculas extends Component{
             peliculas : [],
             pagina: 1,
             isLoaded: false,
-            peliculasOriginales: []
+            peliculasOriginales: [],
+            orientation: true
         }
     }
 
@@ -49,34 +50,68 @@ class Peliculas extends Component{
     deleteCard(peliculaABorrar){
         let peliculasQueQuedan = this.state.peliculas.filter(pelicula => pelicula.id !== peliculaABorrar)
         this.setState({
-            peliculas:peliculasQueQuedan
+            peliculas:peliculasQueQuedan,
         })
     }
 
     filtrarPeliculas(buscador){
         let peliculasFiltradas = this.state.peliculasOriginales.filter(pelicula=> pelicula.title.toLowerCase().includes(buscador.toLowerCase()));
+        
+        if(peliculasFiltradas.length !== 0){
         this.setState({
-            peliculas: peliculasFiltradas
+            peliculas: peliculasFiltradas,
+        })
+        }
+        else{
+            this.setState({
+                alerta: 'No hay datos que coincidan con su búsqueda',
+            }) 
+        }
+    }
+    vertical(){
+            this.setState({
+                orientation: true
+            })
+        
+    }
+    horizontal(){
+        this.setState({
+            orientation: false
         })
     }
 
     render(){
         return(
-            <main>
+            <React.Fragment>
+                <header>
+                <img src='./assets/img/logo.jpg' alt='imagen logo' ></img>
+                <div className='orientation'>
+                <i className="fas fa-th" onClick={() => this.vertical()}></i>
+                <i className="fas fa-align-justify" onClick={() => this.horizontal()}></i>
+                </div>
+                <section className='searchBar'>
                 <Filtro filtrarPeliculas={(buscador)=> this.filtrarPeliculas(buscador)}/>
-                <section className={`${this.state.isLoaded ? 'container' : 'carga'}`}>
+                </section>
+                </header>
+
+            
+            <main>
+            <section className={`${this.state.isLoaded ? 'container' : 'carga'}`}>
+            <article className={`card-container-${this.state.orientation ? 'vertical' : 'horizontal'}`}>
                     {
                         this.state.isLoaded === false ?
                         <div className='spinner'>
                         </div> :
                         this.state.peliculas.map((peliculas, idx,) =>  
-                        <Cards key={peliculas.title + idx} dataPeliculas={peliculas} remove={(peliculaABorrar) => this.deleteCard(peliculaABorrar)}/>)
+                        <Cards key={peliculas.title + idx} dataPeliculas={peliculas} remove={(peliculaABorrar) => this.deleteCard(peliculaABorrar)} vista={this.state.orientation}/>)
                     }
-                </section>
+                </article>
+            </section>
                 <div className='button'>
                     <button type="button"  onClick={() => this.addMore()}>Cargar más tarjetas</button>
                 </div>
             </main>
+            </React.Fragment>
         )
     }
 }
