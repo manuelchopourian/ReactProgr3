@@ -11,7 +11,8 @@ class Peliculas extends Component{
             pagina: 1,
             isLoaded: false,
             peliculasOriginales: [],
-            orientation: true
+            orientation: true,
+            alerta: ''
         }
     }
 
@@ -57,16 +58,12 @@ class Peliculas extends Component{
     filtrarPeliculas(buscador){
         let peliculasFiltradas = this.state.peliculasOriginales.filter(pelicula=> pelicula.title.toLowerCase().includes(buscador.toLowerCase()));
         
-        if(peliculasFiltradas.length !== 0){
+        
         this.setState({
             peliculas: peliculasFiltradas,
         })
-        }
-        else{
-            this.setState({
-                alerta: 'No hay datos que coincidan con su búsqueda',
-            }) 
-        }
+        
+    
     }
     vertical(){
             this.setState({
@@ -102,8 +99,10 @@ class Peliculas extends Component{
                         this.state.isLoaded === false ?
                         <div className='spinner'>
                         </div> :
-                        this.state.peliculas.map((peliculas, idx,) =>  
-                        <Cards key={peliculas.title + idx} dataPeliculas={peliculas} remove={(peliculaABorrar) => this.deleteCard(peliculaABorrar)} vista={this.state.orientation}/>)
+                        this.state.peliculas.length === 0 ? 
+                        <p>No hay resultados </p> :
+                        this.state.peliculas.map((pelicula, idx,) =>  
+                        <Cards key={pelicula.title + idx} dataPeliculas={pelicula} remove={(peliculaABorrar) => this.deleteCard(peliculaABorrar)} vista={this.state.orientation}/>)
                     }
                 </article>
             </section>

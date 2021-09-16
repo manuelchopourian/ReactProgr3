@@ -27,6 +27,8 @@ class Cards extends Component{
     render(){
         return (
             <React.Fragment>
+                { 
+                
                 <article className={`cards-${this.props.vista ? 'vertical' : 'horizontal'}`}>
                 <section className="navigation">
                     <div className='close'>
@@ -48,7 +50,7 @@ class Cards extends Component{
                         <p className='more' onClick={() => this.viewMore()}>{this.state.text}</p>
                     </div>
                 </main>
-                </article>
+                </article> }
             </React.Fragment>
 
         );
