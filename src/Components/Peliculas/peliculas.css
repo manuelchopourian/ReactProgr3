@@ -53,4 +53,13 @@ header img{
 }
 .card-container-horizontal{
     flex-direction: column;
+    display: flex;
+}
+.cover-horizontal .title{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
 }

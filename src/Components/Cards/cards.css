@@ -60,17 +60,15 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
- 
-
-
 }
 .cards-horizontal{
     width: 80vw;
-    height: 30vh;
+    height: 100%;
     border: 1px solid black;
     margin: 2vh 0;
     background-color: white;
     border-radius: 10px;
+    padding: 5px;
 }
 .cards-horizontal:hover{
     box-shadow: 0.5em 0 0.5em rgba(255, 255, 255, 0.5), -0.5em 0 0.5em rgba(255, 255, 255, 0.5);
@@ -82,7 +80,7 @@
 }
 .cover-horizontal h3{
     font-family: 'Roboto', sans-serif;
-    font-size: 1.3em;
+    font-size: 1vw;
     margin-left: 0.3vw;
     margin-right: 0.3vw;
     display: flex;
@@ -90,10 +88,11 @@
     text-align: center;
 }
 .cover-horizontal img{
-    width: 30%;
+    width: 100%;
     align-self: center;
     margin-bottom: 1.5vh;
     border: 1px solid black;
+    height: 200px;
 }
 .infoCard-vertical{
     margin: 0 1vw;
@@ -109,6 +108,7 @@
     flex-direction: column;
     justify-content: center;
     font-family: 'Roboto', sans-serif;
+    width: 150vw;
 }
 
 .more{
