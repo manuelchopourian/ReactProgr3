@@ -52,6 +52,7 @@ class Peliculas extends Component{
         let peliculasQueQuedan = this.state.peliculas.filter(pelicula => pelicula.id !== peliculaABorrar)
         this.setState({
             peliculas:peliculasQueQuedan,
+            peliculasOriginales : peliculasQueQuedan
         })
     }
 
@@ -100,7 +101,7 @@ class Peliculas extends Component{
                         <div className='spinner'>
                         </div> :
                         this.state.peliculas.length === 0 ? 
-                        <p>No hay resultados </p> :
+                        <p className="noresultados">No hay resultados correspondientes a tu busqueda</p> :
                         this.state.peliculas.map((pelicula, idx,) =>  
                         <Cards key={pelicula.title + idx} dataPeliculas={pelicula} remove={(peliculaABorrar) => this.deleteCard(peliculaABorrar)} vista={this.state.orientation}/>)
                     }
