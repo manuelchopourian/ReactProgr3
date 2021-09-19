@@ -70,6 +70,8 @@ header img{
     font-size: 32px;
     color: white;
     font-family: 'Roboto', sans-serif;
+    text-align: center;
+    margin: auto;
 }
 @media(max-width: 768px){
     .searchBar{

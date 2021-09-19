@@ -52,6 +52,7 @@ class Peliculas extends Component{
         let peliculasQueQuedan = this.state.peliculas.filter(pelicula => pelicula.id !== peliculaABorrar)
         this.setState({
             peliculas:peliculasQueQuedan,
+            peliculasOriginales: peliculasQueQuedan
     
         })
     }
@@ -62,6 +63,7 @@ class Peliculas extends Component{
         
         this.setState({
             peliculas: peliculasFiltradas,
+
         })
         
     
