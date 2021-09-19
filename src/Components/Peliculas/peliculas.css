@@ -55,6 +55,8 @@ header img{
 .card-container-horizontal{
     flex-direction: column;
     display: flex;
+    align-items: center;
+    width: 100%;
 }
 .cover-horizontal .title{
     display: flex;
