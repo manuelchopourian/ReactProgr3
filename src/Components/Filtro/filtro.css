@@ -15,3 +15,8 @@
     border-radius: 5px;
     margin-left: 1vw;
 }
+@media(max-width: 768px){
+    .buscador{
+        width: 85%;
+    }
+}

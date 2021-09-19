@@ -7,7 +7,8 @@ header{
     background-color: black;
 }
 header img{
-    height: 8vh;
+    height: 6vh;
+    align-self: center;
 }
 .searchBar{
     display: flex;
@@ -63,3 +64,14 @@ header img{
     align-items: center;
     width: 40%;
 }
+.resultados{
+    font-size: 32px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+@media(max-width: 768px){
+    .searchBar{
+        width: 40vw;
+    }
+}
+

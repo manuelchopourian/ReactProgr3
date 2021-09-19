@@ -100,7 +100,7 @@ class Peliculas extends Component{
                         <div className='spinner'>
                         </div> :
                         this.state.peliculas.length === 0 ? 
-                        <p>No hay resultados </p> :
+                        <b className='resultados'>No hay datos que coincidan con su búsqueda</b> :
                         this.state.peliculas.map((pelicula, idx,) =>  
                         <Cards key={pelicula.title + idx} dataPeliculas={pelicula} remove={(peliculaABorrar) => this.deleteCard(peliculaABorrar)} vista={this.state.orientation}/>)
                     }
